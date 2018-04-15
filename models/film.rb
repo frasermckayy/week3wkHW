@@ -63,9 +63,15 @@ class Film
 
   #which customers are coming to see the film
   def customer_attendance()
-      sql = "SELECT customer.* FROM customers AS customer INNER JOIN tickets ON customer.id = tickets.customer_id
-      WHERE tickets.film_id = $1;"
-      values = [@id]
-      return SqlRunner.run(sql, values).map { |customer| customer['name'] }
-    end
+    sql = "SELECT customer.* FROM customers AS customer INNER JOIN tickets ON customer.id = tickets.customer_id
+    WHERE tickets.film_id = $1;"
+    values = [@id]
+    return SqlRunner.run(sql, values).map { |customer| customer['name'] }
+  end
+
+  #how many tickets were sold for each film
+  def tickets_sold()
+    return customer_attendance.length
+  end
+
 end
