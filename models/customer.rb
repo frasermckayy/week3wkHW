@@ -76,11 +76,9 @@ class Customer
     update()
     return @funds
   end
+
   #how many tickets were purchased by one customer
   def tickets_purchased()
     return films_booked.length()
   end
-
-
-
 end
