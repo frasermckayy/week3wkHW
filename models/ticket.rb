@@ -36,5 +36,4 @@ class Ticket
   def self.map_tickets(ticket_data)
     return ticket_data.map{|ticket_hash| Ticket.new(ticket_hash)}
   end
-
 end
